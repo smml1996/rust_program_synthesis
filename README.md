@@ -1,1 +1,1 @@
-# rust_program_synthesis
+# Quantum algorithm synthesis Using POMDPs in Rust
