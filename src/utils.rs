@@ -139,11 +139,11 @@ pub mod instructions {
     }
 
     pub enum GateType {
-        CLASSIC,     // only classical reads and writes
-        MEASUREMENT, // must return classical output to fall into this category
-        MULTIQUBIT,  // must be unitary
-        SINGLEQUBIT, // must be unitary
-        NONUNITARY,  // reset falls here, anything that does not return an observable
+        Classic,     // only classical reads and writes
+        Measurement, // must return classical output to fall into this category
+        MultiQubit,  // must be unitary
+        SingleQubit, // must be unitary
+        NonUnitary,  // reset falls here, anything that does not return an observable
     }
 
     impl Gate {
@@ -165,11 +165,11 @@ pub mod instructions {
                 | Gate::Td
                 | Gate::Rz
                 | Gate::Ry
-                | Gate::Rx => GateType::SINGLEQUBIT,
+                | Gate::Rx => GateType::SingleQubit,
 
-                Gate::Reset | Gate::Custom => GateType::NONUNITARY, // Custom goes here cause kraus matrices are not always unitary
+                Gate::Reset | Gate::Custom => GateType::NonUnitary, // Custom goes here cause kraus matrices are not always unitary
 
-                Gate::Meas => GateType::MEASUREMENT,
+                Gate::Meas => GateType::Measurement,
 
                 Gate::Cnot
                 | Gate::Ecr
@@ -177,7 +177,7 @@ pub mod instructions {
                 | Gate::Cz
                 | Gate::Ch
                 | Gate::Swap
-                | Gate::Toffoli => GateType::MULTIQUBIT,
+                | Gate::Toffoli => GateType::MultiQubit,
             }
         }
     }
@@ -213,7 +213,7 @@ pub mod instructions {
         #[cfg(debug_assertions)] // this function only exists in debug mode
         fn check_instruction(self) {
             match Gate::get_gate_type(&self.gate) {
-                GateType::CLASSIC => {
+                GateType::Classic => {
                     debug_assert!(
                         self.controls.is_none(),
                         "classical instructions do not need controls"
@@ -231,7 +231,7 @@ pub mod instructions {
                         "we only need to set target for classical instructions (not classical target)"
                     );
                 }
-                GateType::MEASUREMENT => {
+                GateType::Measurement => {
                     debug_assert!(
                         self.classical_target.is_some(),
                         "classical target needed for measurement instruction"
@@ -249,7 +249,7 @@ pub mod instructions {
                         "matrix should not be specified for measurement instructions"
                     );
                 }
-                GateType::MULTIQUBIT => {
+                GateType::MultiQubit => {
                     debug_assert!(
                         self.controls.is_some(),
                         "controls in multiqubit gate is none"
@@ -265,7 +265,7 @@ pub mod instructions {
                         "multiqubit gate cannot be specified with a matrix"
                     );
                 }
-                GateType::SINGLEQUBIT => {
+                GateType::SingleQubit => {
                     debug_assert!(
                         self.controls.is_none(),
                         "single qubit gates should not have controls"
@@ -275,7 +275,7 @@ pub mod instructions {
                         "single qubit gates does not needs classical target"
                     );
                 }
-                GateType::NONUNITARY => {
+                GateType::NonUnitary => {
                     // the following might be assumptions I might need to remove later:
                     debug_assert!(
                         self.controls.is_none(),

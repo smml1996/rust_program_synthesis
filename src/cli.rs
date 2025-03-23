@@ -7,7 +7,6 @@ use clap::{Parser, Subcommand, command};
     author = env!("CARGO_PKG_AUTHORS"),
     about = env!("CARGO_PKG_DESCRIPTION")
 )]
-
 pub struct Cli {
     #[command(subcommand)]
     command: Commands,
