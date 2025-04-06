@@ -52,6 +52,7 @@ class Op(Enum):
     CNOT = "CNOT"
     ECR = "ECR"
     RZX = "RZX"
+    RZZ = "RZZ"
     CZ = "CZ"
     CH = "CH"
     SWAP= "SWAP"
@@ -141,6 +142,11 @@ class HardwareSpec(Enum):
 
 
 def get_ibm_noise_model(hardware_spec: HardwareSpec, thermal_relaxation=True) -> IBMNoiseModel:
+    backend = get_backend(hardware_spec)
+    ibm_noise_model = IBMNoiseModel.from_backend(backend, thermal_relaxation=thermal_relaxation)
+    return ibm_noise_model
+
+def get_backend(hardware_spec: HardwareSpec):
     backend_ = hardware_spec
     if backend_ == HardwareSpec.ALGIERS:
         backend = FakeAlgiers()
@@ -256,12 +262,11 @@ def get_ibm_noise_model(hardware_spec: HardwareSpec, thermal_relaxation=True) ->
         backend = FakeJakartaV2()
     else:
         raise Exception("Could not retrieve backend", hardware_spec)
-    ibm_noise_model = IBMNoiseModel.from_backend(backend, thermal_relaxation=thermal_relaxation)
-    return ibm_noise_model
+    return backend
 
 def is_multiqubit_gate(op: Op):
     assert isinstance(op, Op)
-    if op in [Op.CNOT, Op.CZ, Op.SWAP, Op.CH, Op.ECR, Op.RZX]:
+    if op in [Op.CNOT, Op.CZ, Op.SWAP, Op.CH, Op.ECR, Op.RZX, Op.RZZ]:
         return True
     return False
 
@@ -619,6 +624,7 @@ class NoiseModel:
     hardware_spec: HardwareSpec
     basis_gates: List[Op]
     instructions_to_channel: Dict[Instruction, QuantumChannel|MeasChannel]
+    instructions_to_duration: Dict[Instruction, float]
     num_qubits: int
     qubit_to_indegree: Dict[int, int] # tells mutiqubit gates have as target a given qubit (key)
     qubit_to_outdegree: Dict[int, int]
@@ -626,6 +632,7 @@ class NoiseModel:
     def load_noise_model(self, thermal_relaxation):
         ibm_noise_model = get_ibm_noise_model(self.hardware_spec, thermal_relaxation=thermal_relaxation)
         assert isinstance(ibm_noise_model, IBMNoiseModel)
+        
         self.basis_gates = get_basis_gate_type([get_op(op) for op in ibm_noise_model.basis_gates])
         self.instructions_to_channel = dict()
         self.num_qubits = len(ibm_noise_model.noise_qubits)
@@ -634,9 +641,10 @@ class NoiseModel:
         self.qubit_to_outdegree = dict()
         # start translating quantum channels
         all_errors = ibm_noise_model.to_dict()
+        
         assert len(all_errors.keys()) == 1
 
-        all_errors = all_errors['errors']
+        all_errors = all_errors['errors'] 
 
         for error in all_errors:
             target_instructions = error['operations'] # this error applies to these instructions
@@ -691,17 +699,51 @@ class NoiseModel:
         # if len(report.keys()) > 0:
         #     print(f"WARNING ({hardware_specification.value}) (qubits={self.num_qubits}) ({self.basis_gates.value}): no quantum channel found for {report}")
         
+    def get_durations(self) -> Dict[Op, float]:
+        answer = dict()
+        backend = get_backend(self.hardware_spec)
+        gates = backend.properties().gates
+        
+        for gate in gates:
+            for param in gate.parameters:
+                if param.name == "gate_length":
+                    assert param.unit == "ns"
+                    assert isinstance(gate.gate, str)
+                    op = get_op(gate.gate)
+                    duration = param.value
+                    if len(gate.qubits) > 1:
+                        assert len(gate.qubits) == 2
+                        assert is_multiqubit_gate(op)
+                        control = gate.qubits[0]
+                        target = gate.qubits[1]
+                    else:
+                        control = None
+                        target = gate.qubits[0]
+                    instruction = Instruction(target, op, control=control)
+                    assert instruction not in answer.keys()
+                    answer[instruction] = duration
+        for qubit_idx, qubit_props in enumerate(backend.properties().qubits):
+            for param in qubit_props:
+                if param.name == "readout_length":
+                    assert param.unit == "ns"
+                    instruction = Instruction(qubit_idx, Op.MEAS)
+                    assert instruction not in answer.keys()
+                    answer[instruction] = param.value
+        return answer
+        
     def __init__(self, hardware_specification: HardwareSpec=None, thermal_relaxation=True) -> None:
         self.hardware_spec = hardware_specification
         self.thermal_relaxation = thermal_relaxation
+        
         if hardware_specification is not None:
             self.load_noise_model(thermal_relaxation=thermal_relaxation)
         else:
             self.instructions_to_channel = dict()
             self.num_qubits = None
-            self.basis_gates = None
+            self.basis_gates = []
             self.report = None
             self.digraph = None
+        self.instructions_to_duration = self.get_durations()
 
     def get_digraph_(self):
         answer = dict()
@@ -806,9 +848,14 @@ class NoiseModel:
     def serialize(self):
         instructions = []
         channels = []
+        durations = []
         for (instruction, channel) in self.instructions_to_channel.items():
             instructions.append(instruction.serialize())
             channels.append(channel.serialize())
+            if instruction in self.instructions_to_duration.keys():
+                durations.append(self.instructions_to_duration[instruction])
+            else:
+                durations.append(0)
 
         assert len(instructions) == len(channels)
         return {
@@ -818,7 +865,8 @@ class NoiseModel:
             "basis_gates_type": str(self.basis_gates.name),
             'basis_gates': [str(x.name) for x in self.basis_gates.value],
             'instructions': instructions,
-            'channels': channels
+            'channels': channels,
+            'durations': durations
         }
     
     def get_instruction_channel(self, instruction):

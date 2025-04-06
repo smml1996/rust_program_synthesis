@@ -4,20 +4,13 @@
     "num_qubits": 1,
     "basis_gates_type": "TYPE9",
     "basis_gates": [
-        "SX",
+        "X",
+        "RZ",
         "MEAS",
         "RESET",
-        "X",
-        "RZ"
+        "SX"
     ],
     "instructions": [
-        {
-            "type": "instruction",
-            "target": 0,
-            "control": -1,
-            "op": "SX",
-            "params": []
-        },
         {
             "type": "instruction",
             "target": 0,
@@ -36,6 +29,13 @@
             "type": "instruction",
             "target": 0,
             "control": -1,
+            "op": "SX",
+            "params": []
+        },
+        {
+            "type": "instruction",
+            "target": 0,
+            "control": -1,
             "op": "MEAS",
             "params": []
         },
@@ -43,14 +43,14 @@
             "type": "instruction",
             "target": 0,
             "control": -1,
-            "op": "RESET",
+            "op": "RZ",
             "params": []
         },
         {
             "type": "instruction",
             "target": 0,
             "control": -1,
-            "op": "RZ",
+            "op": "RESET",
             "params": []
         }
     ],
@@ -1483,5 +1483,13 @@
                 ]
             ]
         }
+    ],
+    "durations": [
+        71.11111111111111,
+        71.11111111111111,
+        71.11111111111111,
+        4977.777777777777,
+        0,
+        0
     ]
 }

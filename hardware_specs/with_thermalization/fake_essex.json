@@ -4,11 +4,11 @@
     "num_qubits": 5,
     "basis_gates_type": "TYPE8",
     "basis_gates": [
-        "MEAS",
-        "U3",
-        "RESET",
-        "U1",
         "CNOT",
+        "U3",
+        "U1",
+        "RESET",
+        "MEAS",
         "U2"
     ],
     "instructions": [
@@ -16,35 +16,35 @@
             "type": "instruction",
             "target": 0,
             "control": -1,
-            "op": "U2",
+            "op": "I",
             "params": []
         },
         {
             "type": "instruction",
             "target": 1,
             "control": -1,
-            "op": "U2",
+            "op": "I",
             "params": []
         },
         {
             "type": "instruction",
             "target": 2,
             "control": -1,
-            "op": "U2",
+            "op": "I",
             "params": []
         },
         {
             "type": "instruction",
             "target": 3,
             "control": -1,
-            "op": "U2",
+            "op": "I",
             "params": []
         },
         {
             "type": "instruction",
             "target": 4,
             "control": -1,
-            "op": "U2",
+            "op": "I",
             "params": []
         },
         {
@@ -80,41 +80,6 @@
             "target": 4,
             "control": -1,
             "op": "U3",
-            "params": []
-        },
-        {
-            "type": "instruction",
-            "target": 0,
-            "control": -1,
-            "op": "I",
-            "params": []
-        },
-        {
-            "type": "instruction",
-            "target": 1,
-            "control": -1,
-            "op": "I",
-            "params": []
-        },
-        {
-            "type": "instruction",
-            "target": 2,
-            "control": -1,
-            "op": "I",
-            "params": []
-        },
-        {
-            "type": "instruction",
-            "target": 3,
-            "control": -1,
-            "op": "I",
-            "params": []
-        },
-        {
-            "type": "instruction",
-            "target": 4,
-            "control": -1,
-            "op": "I",
             "params": []
         },
         {
@@ -177,6 +142,41 @@
             "type": "instruction",
             "target": 0,
             "control": -1,
+            "op": "U2",
+            "params": []
+        },
+        {
+            "type": "instruction",
+            "target": 1,
+            "control": -1,
+            "op": "U2",
+            "params": []
+        },
+        {
+            "type": "instruction",
+            "target": 2,
+            "control": -1,
+            "op": "U2",
+            "params": []
+        },
+        {
+            "type": "instruction",
+            "target": 3,
+            "control": -1,
+            "op": "U2",
+            "params": []
+        },
+        {
+            "type": "instruction",
+            "target": 4,
+            "control": -1,
+            "op": "U2",
+            "params": []
+        },
+        {
+            "type": "instruction",
+            "target": 0,
+            "control": -1,
             "op": "MEAS",
             "params": []
         },
@@ -212,20 +212,13 @@
             "type": "instruction",
             "target": 0,
             "control": -1,
-            "op": "RESET",
+            "op": "U1",
             "params": []
         },
         {
             "type": "instruction",
             "target": 0,
             "control": -1,
-            "op": "U1",
-            "params": []
-        },
-        {
-            "type": "instruction",
-            "target": 1,
-            "control": -1,
             "op": "RESET",
             "params": []
         },
@@ -238,7 +231,7 @@
         },
         {
             "type": "instruction",
-            "target": 2,
+            "target": 1,
             "control": -1,
             "op": "RESET",
             "params": []
@@ -252,7 +245,7 @@
         },
         {
             "type": "instruction",
-            "target": 3,
+            "target": 2,
             "control": -1,
             "op": "RESET",
             "params": []
@@ -266,7 +259,7 @@
         },
         {
             "type": "instruction",
-            "target": 4,
+            "target": 3,
             "control": -1,
             "op": "RESET",
             "params": []
@@ -276,6 +269,13 @@
             "target": 4,
             "control": -1,
             "op": "U1",
+            "params": []
+        },
+        {
+            "type": "instruction",
+            "target": 4,
+            "control": -1,
+            "op": "RESET",
             "params": []
         }
     ],
@@ -4882,2316 +4882,6 @@
                                 },
                                 {
                                     "real": 0.04612810793253637,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ]
-            ]
-        },
-        {
-            "probabilities": [
-                0.9998209868319428,
-                0.9998209868319428,
-                0.9998209868319428,
-                5.967105601908509e-05,
-                5.967105601908509e-05,
-                5.967105601908509e-05,
-                5.967105601908509e-05,
-                5.967105601908509e-05,
-                5.967105601908509e-05,
-                5.967105601908509e-05,
-                5.967105601908509e-05,
-                5.967105601908509e-05
-            ],
-            "errors": [
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999642783124438,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9997502619667982,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.008452342815591603,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.008454152206986991,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.020686735068137747,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999642783124438,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9997502619667982,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.008452342815591603,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.008454152206986991,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.020686735068137747,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999642783124438,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9997502619667982,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.008452342815591603,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.008454152206986991,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.020686735068137747,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999642783124438,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9997502619667982,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.008452342815591603,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.008454152206986991,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 0,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.020686735068137747,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ]
-            ]
-        },
-        {
-            "probabilities": [
-                0.9991920405779736,
-                0.9991920405779736,
-                0.9991920405779736,
-                0.0002693198073421787,
-                0.0002693198073421787,
-                0.0002693198073421787,
-                0.0002693198073421787,
-                0.0002693198073421787,
-                0.0002693198073421787,
-                0.0002693198073421787,
-                0.0002693198073421787,
-                0.0002693198073421787
-            ],
-            "errors": [
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999919309715333,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.999631680682621,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.0040172119465442776,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.004018659681537407,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.026839399210906768,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999919309715333,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.999631680682621,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.0040172119465442776,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.004018659681537407,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.026839399210906768,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999919309715333,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.999631680682621,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.0040172119465442776,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.004018659681537407,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.026839399210906768,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999919309715333,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.999631680682621,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.0040172119465442776,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.004018659681537407,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 1,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.026839399210906768,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ]
-            ]
-        },
-        {
-            "probabilities": [
-                0.999219606259953,
-                0.999219606259953,
-                0.999219606259953,
-                0.0002601312466823794,
-                0.0002601312466823794,
-                0.0002601312466823794,
-                0.0002601312466823794,
-                0.0002601312466823794,
-                0.0002601312466823794,
-                0.0002601312466823794,
-                0.0002601312466823794,
-                0.0002601312466823794
-            ],
-            "errors": [
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999382473706369,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994505201911948,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.011113120414136285,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.011118543564922529,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03122556130071537,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999382473706369,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994505201911948,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.011113120414136285,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.011118543564922529,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03122556130071537,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999382473706369,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994505201911948,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.011113120414136285,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.011118543564922529,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03122556130071537,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999382473706369,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994505201911948,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.011113120414136285,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.011118543564922529,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 2,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03122556130071537,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ]
-            ]
-        },
-        {
-            "probabilities": [
-                0.9997808581923867,
-                0.9997808581923867,
-                0.9997808581923867,
-                7.30472692044538e-05,
-                7.30472692044538e-05,
-                7.30472692044538e-05,
-                7.30472692044538e-05,
-                7.30472692044538e-05,
-                7.30472692044538e-05,
-                7.30472692044538e-05,
-                7.30472692044538e-05,
-                7.30472692044538e-05
-            ],
-            "errors": [
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.9999110855122275,
-                                    "imag": -2.3474094556806643e-47
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.999415100557073,
-                                    "imag": -2.346245072376512e-47
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.013334956683788386,
-                                    "imag": 1.1316323049877903e-33
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.013341574492433771,
-                                    "imag": -1.1321939060659887e-33
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03148744461778951,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.9999110855122275,
-                                    "imag": -2.3474094556806643e-47
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.999415100557073,
-                                    "imag": -2.346245072376512e-47
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.013334956683788386,
-                                    "imag": 1.1316323049877903e-33
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.013341574492433771,
-                                    "imag": -1.1321939060659887e-33
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03148744461778951,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.9999110855122275,
-                                    "imag": -2.3474094556806643e-47
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.999415100557073,
-                                    "imag": -2.346245072376512e-47
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.013334956683788386,
-                                    "imag": 1.1316323049877903e-33
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.013341574492433771,
-                                    "imag": -1.1321939060659887e-33
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03148744461778951,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.9999110855122275,
-                                    "imag": -2.3474094556806643e-47
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.999415100557073,
-                                    "imag": -2.346245072376512e-47
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.013334956683788386,
-                                    "imag": 1.1316323049877903e-33
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.013341574492433771,
-                                    "imag": -1.1321939060659887e-33
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 3,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.03148744461778951,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ]
-            ]
-        },
-        {
-            "probabilities": [
-                0.999806883910894,
-                0.999806883910894,
-                0.999806883910894,
-                6.437202970204645e-05,
-                6.437202970204645e-05,
-                6.437202970204645e-05,
-                6.437202970204645e-05,
-                6.437202970204645e-05,
-                6.437202970204645e-05,
-                6.437202970204645e-05,
-                6.437202970204645e-05,
-                6.437202970204645e-05
-            ],
-            "errors": [
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999809519332732,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994485459066258,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.006172177138283939,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.006175465055725426,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "I",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.032626181457191906,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999809519332732,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994485459066258,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.006172177138283939,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.006175465055725426,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "X",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.032626181457191906,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999809519332732,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994485459066258,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.006172177138283939,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.006175465055725426,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "Y",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.032626181457191906,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.9999809519332732,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": -0.9994485459066258,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": -0.006172177138283939,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                }
-                            ],
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.006175465055725426,
-                                    "imag": 0.0
-                                }
-                            ]
-                        ]
-                    }
-                ],
-                [
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "Z",
-                        "params": []
-                    },
-                    {
-                        "type": "instruction",
-                        "target": 4,
-                        "control": -1,
-                        "op": "CUSTOM",
-                        "params": [
-                            [
-                                {
-                                    "real": 0.0,
-                                    "imag": 0.0
-                                },
-                                {
-                                    "real": 0.032626181457191906,
                                     "imag": 0.0
                                 }
                             ],
@@ -91355,6 +89045,2316 @@
             ]
         },
         {
+            "probabilities": [
+                0.9998209868319428,
+                0.9998209868319428,
+                0.9998209868319428,
+                5.967105601908509e-05,
+                5.967105601908509e-05,
+                5.967105601908509e-05,
+                5.967105601908509e-05,
+                5.967105601908509e-05,
+                5.967105601908509e-05,
+                5.967105601908509e-05,
+                5.967105601908509e-05,
+                5.967105601908509e-05
+            ],
+            "errors": [
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999642783124438,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9997502619667982,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.008452342815591603,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.008454152206986991,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.020686735068137747,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999642783124438,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9997502619667982,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.008452342815591603,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.008454152206986991,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.020686735068137747,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999642783124438,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9997502619667982,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.008452342815591603,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.008454152206986991,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.020686735068137747,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999642783124438,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9997502619667982,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.008452342815591603,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.008454152206986991,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 0,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.020686735068137747,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            ]
+        },
+        {
+            "probabilities": [
+                0.9991920405779736,
+                0.9991920405779736,
+                0.9991920405779736,
+                0.0002693198073421787,
+                0.0002693198073421787,
+                0.0002693198073421787,
+                0.0002693198073421787,
+                0.0002693198073421787,
+                0.0002693198073421787,
+                0.0002693198073421787,
+                0.0002693198073421787,
+                0.0002693198073421787
+            ],
+            "errors": [
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999919309715333,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.999631680682621,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.0040172119465442776,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.004018659681537407,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.026839399210906768,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999919309715333,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.999631680682621,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.0040172119465442776,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.004018659681537407,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.026839399210906768,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999919309715333,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.999631680682621,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.0040172119465442776,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.004018659681537407,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.026839399210906768,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999919309715333,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.999631680682621,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.0040172119465442776,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.004018659681537407,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 1,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.026839399210906768,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            ]
+        },
+        {
+            "probabilities": [
+                0.999219606259953,
+                0.999219606259953,
+                0.999219606259953,
+                0.0002601312466823794,
+                0.0002601312466823794,
+                0.0002601312466823794,
+                0.0002601312466823794,
+                0.0002601312466823794,
+                0.0002601312466823794,
+                0.0002601312466823794,
+                0.0002601312466823794,
+                0.0002601312466823794
+            ],
+            "errors": [
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999382473706369,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994505201911948,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.011113120414136285,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.011118543564922529,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03122556130071537,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999382473706369,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994505201911948,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.011113120414136285,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.011118543564922529,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03122556130071537,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999382473706369,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994505201911948,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.011113120414136285,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.011118543564922529,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03122556130071537,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999382473706369,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994505201911948,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.011113120414136285,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.011118543564922529,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 2,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03122556130071537,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            ]
+        },
+        {
+            "probabilities": [
+                0.9997808581923867,
+                0.9997808581923867,
+                0.9997808581923867,
+                7.30472692044538e-05,
+                7.30472692044538e-05,
+                7.30472692044538e-05,
+                7.30472692044538e-05,
+                7.30472692044538e-05,
+                7.30472692044538e-05,
+                7.30472692044538e-05,
+                7.30472692044538e-05,
+                7.30472692044538e-05
+            ],
+            "errors": [
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.9999110855122275,
+                                    "imag": -2.3474094556806643e-47
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.999415100557073,
+                                    "imag": -2.346245072376512e-47
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.013334956683788386,
+                                    "imag": 1.1316323049877903e-33
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.013341574492433771,
+                                    "imag": -1.1321939060659887e-33
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03148744461778951,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.9999110855122275,
+                                    "imag": -2.3474094556806643e-47
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.999415100557073,
+                                    "imag": -2.346245072376512e-47
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.013334956683788386,
+                                    "imag": 1.1316323049877903e-33
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.013341574492433771,
+                                    "imag": -1.1321939060659887e-33
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03148744461778951,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.9999110855122275,
+                                    "imag": -2.3474094556806643e-47
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.999415100557073,
+                                    "imag": -2.346245072376512e-47
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.013334956683788386,
+                                    "imag": 1.1316323049877903e-33
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.013341574492433771,
+                                    "imag": -1.1321939060659887e-33
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03148744461778951,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.9999110855122275,
+                                    "imag": -2.3474094556806643e-47
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.999415100557073,
+                                    "imag": -2.346245072376512e-47
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.013334956683788386,
+                                    "imag": 1.1316323049877903e-33
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.013341574492433771,
+                                    "imag": -1.1321939060659887e-33
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 3,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.03148744461778951,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            ]
+        },
+        {
+            "probabilities": [
+                0.999806883910894,
+                0.999806883910894,
+                0.999806883910894,
+                6.437202970204645e-05,
+                6.437202970204645e-05,
+                6.437202970204645e-05,
+                6.437202970204645e-05,
+                6.437202970204645e-05,
+                6.437202970204645e-05,
+                6.437202970204645e-05,
+                6.437202970204645e-05,
+                6.437202970204645e-05
+            ],
+            "errors": [
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999809519332732,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994485459066258,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.006172177138283939,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.006175465055725426,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "I",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.032626181457191906,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999809519332732,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994485459066258,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.006172177138283939,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.006175465055725426,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "X",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.032626181457191906,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999809519332732,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994485459066258,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.006172177138283939,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.006175465055725426,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "Y",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.032626181457191906,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.9999809519332732,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": -0.9994485459066258,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": -0.006172177138283939,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.006175465055725426,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "Z",
+                        "params": []
+                    },
+                    {
+                        "type": "instruction",
+                        "target": 4,
+                        "control": -1,
+                        "op": "CUSTOM",
+                        "params": [
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.032626181457191906,
+                                    "imag": 0.0
+                                }
+                            ],
+                            [
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                },
+                                {
+                                    "real": 0.0,
+                                    "imag": 0.0
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            ]
+        },
+        {
             "0": {
                 "0": 0.9658,
                 "1": 0.03420000000000001
@@ -91564,5 +91564,45 @@
                 ]
             ]
         }
+    ],
+    "durations": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        128,
+        128,
+        128,
+        128,
+        128,
+        433.77777777777777,
+        369.77777777777777,
+        682.6666666666666,
+        583.1111111111111,
+        618.6666666666666,
+        519.1111111111111,
+        462.2222222222222,
+        526.2222222222222,
+        64,
+        64,
+        64,
+        64,
+        64,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
     ]
 }

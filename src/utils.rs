@@ -1,7 +1,11 @@
-pub mod instructions {
-    use std::collections::HashSet;
-    #[derive(PartialEq, Eq, Hash, Debug)]
-    pub enum Gate {
+pub mod gates {
+    use lazy_static::lazy_static;
+    use std::{collections::HashSet, fmt};
+    use strum::IntoEnumIterator;
+    use strum_macros::EnumIter;
+    #[derive(PartialEq, Eq, Hash, Debug, EnumIter)]
+    pub enum GateName {
+        // this enum just helps to keep track of the basis gates of the quantum hardware
         // one-qubit ops
         I,
         X,
@@ -34,8 +38,28 @@ pub mod instructions {
         Toffoli,
     }
 
+    impl fmt::Display for GateName {
+        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            write!(f, "{:?}", self)
+        }
+    }
+
+    impl GateName {
+        fn get_enum_val(s: &str) -> GateName {
+            let s = s.to_lowercase();
+            for gate_name in GateName::iter() {
+                let str_gate_name = gate_name.to_string().to_lowercase();
+
+                if s == str_gate_name {
+                    return gate_name;
+                }
+            }
+            panic!("failed to get GateName enum for string {}", s)
+        }
+    }
+
     /// Basis gates sets that different hardware specifications utilize
-    #[derive(Debug, PartialEq, Eq, Hash)]
+    #[derive(Debug, PartialEq, Eq, Hash, EnumIter)]
     pub enum BasisGates {
         TYPE1,
         TYPE2,
@@ -50,240 +74,616 @@ pub mod instructions {
         TYPE11,
     }
 
+    lazy_static! {
+        // TODO: Write tests to check that hashmap maps to all different values and that all types are present in the hashmap
+        static ref BASIS_GATES_MAP: std::collections::HashMap<BasisGates, HashSet<GateName>> = {
+            use BasisGates::*;
+            use GateName::*;
+
+            let mut map = std::collections::HashMap::new();
+            map.insert(TYPE1, HashSet::from([
+                Cnot, // multiqubit gates
+                U1,
+                U2,
+                U3, // single qubit gates
+            ]));
+            map.insert(TYPE2, HashSet::from([
+                Cnot, // multiqubit gate
+                Rz,
+                Sx,
+                X, // single qubit gates
+                Meas,
+                Reset, // non-unitary
+            ]));
+            map.insert(TYPE3, HashSet::from([
+                // No meas errors?
+                Cnot, // multiqubit gate
+                Rz,
+                Sx,
+                X,     // single qubit gates
+                Reset, // non-unitary
+            ]));
+            map.insert(TYPE4, HashSet::from([
+                Cz, //multiqubit gate
+                Rz,
+                Sx,
+                X, // unitary gates
+                Meas,
+                Reset, // non-unitary gates
+            ]));
+            map.insert(TYPE5, HashSet::from([
+                Rz,
+                Sx,
+                X, // unitary gates
+            ]));
+            map.insert(TYPE6, HashSet::from([
+                Cnot, // multiqubit gates
+                Sx,
+                X,
+                U1,
+                U2,
+                U3, // single qubit gates
+            ]));
+            map.insert(TYPE7, HashSet::from([
+                Cnot, Rz, Sx, X
+            ]));
+            map.insert(TYPE8, HashSet::from([
+                Cnot, Sx, X, Meas, Reset
+            ]));
+            map.insert(TYPE9, HashSet::from([
+                Rz, Sx, X, Meas, Reset
+            ]));
+            map.insert(TYPE10, HashSet::from([
+                Ecr, Cnot, Rz, Sx, X, Meas, Reset
+            ]));
+            map.insert(TYPE11, HashSet::from([Ecr, Cnot, Rz, Sx, X, Meas, Reset]));
+            map
+        };
+    }
+
     impl BasisGates {
-        fn value(basis_gates: BasisGates) -> HashSet<Gate> {
-            match basis_gates {
-                BasisGates::TYPE1 => HashSet::from([
-                    Gate::Cnot, // multiqubit gates
-                    Gate::U1,
-                    Gate::U2,
-                    Gate::U3, // single qubit gates
-                ]),
-                BasisGates::TYPE2 => HashSet::from([
-                    Gate::Cnot, // multiqubit gate
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X, // single qubit gates
-                    Gate::Meas,
-                    Gate::Reset, // non-unitary
-                ]),
-                BasisGates::TYPE3 => HashSet::from([
-                    // No meas errors?
-                    Gate::Cnot, // multiqubit gate
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X,     // single qubit gates
-                    Gate::Reset, // non-unitary
-                ]),
-                BasisGates::TYPE4 => HashSet::from([
-                    Gate::Cz, //multiqubit gate
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X, // unitary gates
-                    Gate::Meas,
-                    Gate::Reset, // non-unitary gates
-                ]),
-                BasisGates::TYPE5 => HashSet::from([
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X, // unitary gates
-                ]),
-                BasisGates::TYPE6 => HashSet::from([
-                    Gate::Cnot, // multiqubit gates
-                    Gate::Sx,
-                    Gate::X,
-                    Gate::U1,
-                    Gate::U2,
-                    Gate::U3, // single qubit gates
-                ]),
-                BasisGates::TYPE7 => HashSet::from([
-                    Gate::Cnot, // multiqubit gates
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X, // unitary gates
-                ]),
-                BasisGates::TYPE8 => HashSet::from([
-                    Gate::Cnot, // multiqubit gates
-                    Gate::U1,
-                    Gate::U2,
-                    Gate::U3, // single qubit gates
-                    Gate::Meas,
-                    Gate::Reset, // non-unitary gates
-                ]),
-                BasisGates::TYPE9 => HashSet::from([
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X, // unitary gates
-                    Gate::Meas,
-                    Gate::Reset, // non-unitary gates
-                ]),
-                BasisGates::TYPE10 => HashSet::from([
-                    Gate::Ecr, // multiqubit gates
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X, // unitary gates
-                    Gate::Meas,
-                    Gate::Reset, // non-unitary gates
-                ]),
-                BasisGates::TYPE11 => HashSet::from([
-                    Gate::Ecr,
-                    Gate::Cnot, // multiqubit gates
-                    Gate::Rz,
-                    Gate::Sx,
-                    Gate::X, // unitary gates
-                    Gate::Meas,
-                    Gate::Reset, // non-unitary gates
-                ]),
+        pub fn find_basis_gates(raw_basis_gates: Vec<&str>) -> BasisGates {
+            let current_gates: HashSet<GateName> = raw_basis_gates
+                .iter()
+                .copied()
+                .map(GateName::get_enum_val)
+                .collect();
+
+            // convert raw_basis_gates to a hashset that contains gates
+            for basis_gate_type in BasisGates::iter() {
+                if let Some(basis_gates) = BASIS_GATES_MAP.get(&basis_gate_type) {
+                    if *basis_gates == current_gates {
+                        return basis_gate_type;
+                    }
+                } else {
+                    panic!(
+                        "This should not happen: static variable BASIS_GATES_MAP does not contains {:?}",
+                        basis_gate_type
+                    );
+                }
             }
+            panic!("basis gates not found for {:?}", raw_basis_gates);
         }
     }
+}
 
-    pub enum GateType {
-        Classic,     // only classical reads and writes
-        Measurement, // must return classical output to fall into this category
-        MultiQubit,  // must be unitary
-        SingleQubit, // must be unitary
-        NonUnitary,  // reset falls here, anything that does not return an observable
-    }
+pub mod instructions {
+    use rug::{Complex, Float};
+    use serde_json::Value;
+    use std::hash::{Hash, Hasher};
 
-    impl Gate {
-        pub fn get_gate_type(gate: &Gate) -> GateType {
-            match gate {
-                Gate::I
-                | Gate::X
-                | Gate::Y
-                | Gate::Z
-                | Gate::H
-                | Gate::S
-                | Gate::Sd
-                | Gate::Sx
-                | Gate::Sxd
-                | Gate::U1
-                | Gate::U2
-                | Gate::U3
-                | Gate::T
-                | Gate::Td
-                | Gate::Rz
-                | Gate::Ry
-                | Gate::Rx => GateType::SingleQubit,
+    #[derive(Debug)]
+    pub enum Instruction {
+        // this enum just helps to keep track of the basis gates of the quantum hardware
+        // one-qubit ops
+        I {
+            target: u16,
+        },
+        X {
+            target: u16,
+        },
+        Y {
+            target: u16,
+        },
+        Z {
+            target: u16,
+        },
+        H {
+            target: u16,
+        },
+        S {
+            target: u16,
+        },
+        Sd {
+            target: u16,
+        },
+        Sx {
+            target: u16,
+        },
+        Sxd {
+            target: u16,
+        },
+        U1 {
+            target: u16,
+            theta: Float,
+        },
+        U2 {
+            target: u16,
+            phi: Float,
+            lambda: Float,
+        },
+        U3 {
+            target: u16,
+            theta: Float,
+            phi: Float,
+            lambda: Float,
+        },
+        T {
+            target: u16,
+        },
+        Td {
+            target: u16,
+        },
+        Rz {
+            target: u16,
+            phi: Float,
+        },
+        Ry {
+            target: u16,
+            theta: Float,
+        },
+        Rx {
+            target: u16,
+            theta: Float,
+        },
+        Reset {
+            target: u16,
+        },
+        Meas {
+            target: u16,
+        },
+        Custom {
+            target: u16,
+            matrix: [[Complex; 2]; 2],
+        }, // this instruction is for applying arbitrary matrices to a qubit (hence 2x2 matrix)
 
-                Gate::Reset | Gate::Custom => GateType::NonUnitary, // Custom goes here cause kraus matrices are not always unitary
-
-                Gate::Meas => GateType::Measurement,
-
-                Gate::Cnot
-                | Gate::Ecr
-                | Gate::Rzx
-                | Gate::Cz
-                | Gate::Ch
-                | Gate::Swap
-                | Gate::Toffoli => GateType::MultiQubit,
-            }
-        }
-    }
-
-    struct Instruction {
-        target: u16, // use this whenever possible: for classical read and writes, as well as quantum instructions
-        gate: Gate,
-        controls: Option<Vec<u16>>,    // used for multiqubit gates
-        params: Option<Vec<f64>>,      // used for parametric gates
-        matrix: Option<[[f64; 2]; 2]>, // only used for Op::Custom and is a 1-qubit matrix
-        classical_target: Option<u16>, // used only for measurements. The classical output is written at this index in the classical state
+        // MULTI-QUBIT GATES
+        Cnot {
+            control: u16,
+            target: u16,
+        },
+        Ecr {
+            control: u16,
+            target: u16,
+        },
+        Rzx {
+            control: u16,
+            target: u16,
+            theta: Float,
+        },
+        Cz {
+            control: u16,
+            target: u16,
+        },
+        Ch {
+            control: u16,
+            target: u16,
+        },
+        Swap {
+            qubit1: u16,
+            qubit2: u16,
+        },
+        Toffoli {
+            control1: u16,
+            control2: u16,
+            target: u16,
+        },
     }
 
     impl Instruction {
-        fn new(
-            target: u16,
-            gate: Gate,
-            controls: Option<Vec<u16>>,
-            params: Option<Vec<f64>>,
-            matrix: Option<[[f64; 2]; 2]>,
-            classical_target: Option<u16>,
-        ) -> Self {
+        fn get_control(json_val: &Value) -> u16 {
+            json_val["control"]
+                .as_u64()
+                .unwrap()
+                .try_into()
+                .unwrap_or_else(|x| panic!("could not convert control {:?}", json_val))
+        }
+
+        pub fn new(json_val: &Value, prec: u32) -> Self {
+            let op_name: &str = json_val["op"].as_str().unwrap_or_else(|| {
+                panic!("could not convert op {:?}", json_val);
+            });
+
+            let target: u16 = json_val["target"]
+                .as_u64()
+                .unwrap()
+                .try_into()
+                .unwrap_or_else(|_e| {
+                    panic!("target could not be converted ({:?})", json_val);
+                });
+
+            let (theta, phi, lambda) = (Float::new(prec), Float::new(prec), Float::new(prec));
+
+            match op_name {
+                "RESET" => Instruction::Reset { target },
+                "CNOT" => {
+                    let control = Instruction::get_control(json_val);
+                    Instruction::Cnot { control, target }
+                }
+                "U1" => Instruction::U1 { target, theta },
+                "U2" => Instruction::U2 {
+                    target,
+                    phi,
+                    lambda,
+                },
+                "U3" => Instruction::U3 {
+                    target,
+                    theta,
+                    phi,
+                    lambda,
+                },
+                "RZ" => Instruction::Rz { target, phi },
+                "SX" => Instruction::Sx { target },
+                "X" => Instruction::X { target },
+                "MEAS" => Instruction::Meas { target },
+                "CZ" => {
+                    let control = Instruction::get_control(json_val);
+                    Instruction::Cz { control, target }
+                }
+                "ECR" => {
+                    let control: u16 = Instruction::get_control(json_val);
+                    Instruction::Ecr { control, target }
+                }
+                _ => panic!("op {} could not be converted to Instruction", op_name),
+            }
+        }
+    }
+
+    impl PartialEq for Instruction {
+        fn eq(&self, other: &Self) -> bool {
+            match (self, other) {
+                (Self::I { target: l_target }, Self::I { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::X { target: l_target }, Self::X { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::Y { target: l_target }, Self::Y { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::Z { target: l_target }, Self::Z { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::H { target: l_target }, Self::H { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::S { target: l_target }, Self::S { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::Sd { target: l_target }, Self::Sd { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::Sx { target: l_target }, Self::Sx { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::Sxd { target: l_target }, Self::Sxd { target: r_target }) => {
+                    l_target == r_target
+                }
+                (
+                    Self::U1 {
+                        target: l_target, ..
+                    },
+                    Self::U1 {
+                        target: r_target, ..
+                    },
+                ) => l_target == r_target,
+                (
+                    Self::U2 {
+                        target: l_target, ..
+                    },
+                    Self::U2 {
+                        target: r_target, ..
+                    },
+                ) => l_target == r_target,
+                (
+                    Self::U3 {
+                        target: l_target, ..
+                    },
+                    Self::U3 {
+                        target: r_target, ..
+                    },
+                ) => l_target == r_target,
+                (Self::T { target: l_target }, Self::T { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::Td { target: l_target }, Self::Td { target: r_target }) => {
+                    l_target == r_target
+                }
+                (
+                    Self::Rz {
+                        target: l_target, ..
+                    },
+                    Self::Rz {
+                        target: r_target, ..
+                    },
+                ) => l_target == r_target,
+                (
+                    Self::Ry {
+                        target: l_target, ..
+                    },
+                    Self::Ry {
+                        target: r_target, ..
+                    },
+                ) => l_target == r_target,
+                (
+                    Self::Rx {
+                        target: l_target, ..
+                    },
+                    Self::Rx {
+                        target: r_target, ..
+                    },
+                ) => l_target == r_target,
+                (Self::Reset { target: l_target }, Self::Reset { target: r_target }) => {
+                    l_target == r_target
+                }
+                (Self::Meas { target: l_target }, Self::Meas { target: r_target }) => {
+                    l_target == r_target
+                }
+                (
+                    Self::Custom {
+                        target: l_target, ..
+                    },
+                    Self::Custom {
+                        target: r_target, ..
+                    },
+                ) => l_target == r_target,
+                (
+                    Self::Cnot {
+                        control: l_control,
+                        target: l_target,
+                    },
+                    Self::Cnot {
+                        control: r_control,
+                        target: r_target,
+                    },
+                ) => l_control == r_control && l_target == r_target,
+                (
+                    Self::Ecr {
+                        control: l_control,
+                        target: l_target,
+                    },
+                    Self::Ecr {
+                        control: r_control,
+                        target: r_target,
+                    },
+                ) => l_control == r_control && l_target == r_target,
+                (
+                    Self::Rzx {
+                        control: l_control,
+                        target: l_target,
+                        ..
+                    },
+                    Self::Rzx {
+                        control: r_control,
+                        target: r_target,
+                        ..
+                    },
+                ) => l_control == r_control && l_target == r_target,
+                (
+                    Self::Cz {
+                        control: l_control,
+                        target: l_target,
+                    },
+                    Self::Cz {
+                        control: r_control,
+                        target: r_target,
+                    },
+                ) => l_control == r_control && l_target == r_target,
+                (
+                    Self::Ch {
+                        control: l_control,
+                        target: l_target,
+                    },
+                    Self::Ch {
+                        control: r_control,
+                        target: r_target,
+                    },
+                ) => l_control == r_control && l_target == r_target,
+                (
+                    Self::Swap {
+                        qubit1: l_qubit1,
+                        qubit2: l_qubit2,
+                    },
+                    Self::Swap {
+                        qubit1: r_qubit1,
+                        qubit2: r_qubit2,
+                    },
+                ) => l_qubit1 == r_qubit1 && l_qubit2 == r_qubit2,
+                (
+                    Self::Toffoli {
+                        control1: l_control1,
+                        control2: l_control2,
+                        target: l_target,
+                    },
+                    Self::Toffoli {
+                        control1: r_control1,
+                        control2: r_control2,
+                        target: r_target,
+                    },
+                ) => l_control1 == r_control1 && l_control2 == r_control2 && l_target == r_target,
+                _ => false,
+            }
+        }
+    }
+
+    impl Eq for Instruction {}
+
+    impl Hash for Instruction {
+        fn hash<H: Hasher>(&self, state: &mut H) {
+            std::mem::discriminant(self).hash(state); // Hash enum variant
+            // we will not hash parameters Float and Complex, only target since this is what we need for the hashMap of the hardware
+            match self {
+                // One-qubit gates
+                Instruction::I { target }
+                | Instruction::X { target }
+                | Instruction::Y { target }
+                | Instruction::Z { target }
+                | Instruction::H { target }
+                | Instruction::S { target }
+                | Instruction::Sd { target }
+                | Instruction::Sx { target }
+                | Instruction::Sxd { target }
+                | Instruction::T { target }
+                | Instruction::Td { target }
+                | Instruction::Reset { target }
+                | Instruction::Meas { target }
+                | Instruction::U1 { target, .. }
+                | Instruction::Rz { target, .. }
+                | Instruction::Ry { target, .. }
+                | Instruction::Rx { target, .. }
+                | Instruction::U2 { target, .. }
+                | Instruction::U3 { target, .. }
+                | Instruction::Custom { target, .. } => {
+                    target.hash(state);
+                }
+                // Multi-qubit gates
+                Instruction::Cnot { control, target }
+                | Instruction::Ecr { control, target }
+                | Instruction::Cz { control, target }
+                | Instruction::Ch { control, target }
+                | Instruction::Rzx {
+                    control, target, ..
+                } => {
+                    control.hash(state);
+                    target.hash(state);
+                }
+                Instruction::Swap { qubit1, qubit2 } => {
+                    qubit1.hash(state);
+                    qubit2.hash(state);
+                }
+                Instruction::Toffoli {
+                    control1,
+                    control2,
+                    target,
+                } => {
+                    control1.hash(state);
+                    control2.hash(state);
+                    target.hash(state);
+                }
+            }
+        }
+    }
+}
+
+pub mod channels {
+    use core::panic;
+    use std::iter::zip;
+
+    use rug::{Float, ops::CompleteRound};
+    use serde_json::Value;
+
+    use super::instructions::Instruction;
+
+    #[derive(Debug)]
+    pub enum Channel {
+        Quantum(QuantumChannel),
+        Measurement(MeasurementChannel),
+    }
+
+    #[derive(Debug)]
+    pub struct QuantumChannel {
+        errors_to_probs: Vec<(Vec<Instruction>, Float)>,
+    }
+
+    impl QuantumChannel {
+        pub fn new(json_val: &Value, prec: u32) -> Self {
+            let mut errors_to_probs: Vec<(Vec<Instruction>, Float)> = Vec::new();
+
+            let probabilities = json_val["probabilities"].as_array().unwrap();
+            let all_errors = json_val["errors"].as_array().unwrap();
+
+            for (vec_errors_, probability_) in zip(all_errors, probabilities) {
+                let mut final_errors: Vec<Instruction> = Vec::new();
+                let probability = Float::parse(probability_.as_str().unwrap())
+                    .unwrap()
+                    .complete(prec);
+
+                if let Some(vec_errors) = vec_errors_.as_array() {
+                    for json_instruction in vec_errors {
+                        let instruction = Instruction::new(json_instruction, prec);
+                        final_errors.push(instruction);
+                    }
+                } else {
+                    panic!(
+                        "[QuantumChannel] could not convert vector {:?}",
+                        vec_errors_
+                    );
+                }
+                errors_to_probs.push((final_errors, probability));
+            }
+
+            Self { errors_to_probs }
+        }
+    }
+
+    #[derive(Debug)]
+    pub struct MeasurementChannel {
+        correct_0: Float,   // probability of receiving 0 and that it is actually 0
+        correct_1: Float,   // probability of receiving 1 and that it is actually 1
+        incorrect_0: Float, // probability of receiving 0 and that it is actually 1
+        incorrect_1: Float, // probability of receiving 1 and that it is actually 0
+    }
+
+    impl MeasurementChannel {
+        pub fn new(json_val: &Value, prec: u32) -> Self {
+            let str_correct_0 = json_val["0"]["0"].as_str().unwrap_or_else(|| {
+                panic!(
+                    "[MeasurementChannel] could not convert float 00 {:?}",
+                    json_val
+                );
+            });
+            let str_incorrect_0 = json_val["0"]["1"].as_str().unwrap_or_else(|| {
+                panic!(
+                    "[MeasurementChannel] could not convert float 01 {:?}",
+                    json_val
+                );
+            });
+            let str_correct_1 = json_val["1"]["1"].as_str().unwrap_or_else(|| {
+                panic!(
+                    "[MeasurementChannel] could not convert float 11 {:?}",
+                    json_val
+                );
+            });
+            let str_incorrect_1 = json_val["1"]["0"].as_str().unwrap_or_else(|| {
+                panic!(
+                    "[MeasurementChannel] could not convert float 10 {:?}",
+                    json_val
+                );
+            });
+
+            let correct_0: Float = Float::parse(str_correct_0).unwrap().complete(prec);
+            let correct_1: Float = Float::parse(str_correct_1).unwrap().complete(prec);
+            let incorrect_0: Float = Float::parse(str_incorrect_0).unwrap().complete(prec);
+            let incorrect_1 = Float::parse(str_incorrect_1).unwrap().complete(prec);
             Self {
-                target,
-                gate,
-                controls,
-                params,
-                matrix,
-                classical_target,
+                correct_0,
+                correct_1,
+                incorrect_0,
+                incorrect_1,
             }
         }
 
-        #[cfg(debug_assertions)] // this function only exists in debug mode
-        fn check_instruction(self) {
-            match Gate::get_gate_type(&self.gate) {
-                GateType::Classic => {
-                    debug_assert!(
-                        self.controls.is_none(),
-                        "classical instructions do not need controls"
-                    );
-                    debug_assert!(
-                        self.params.is_none(),
-                        "no parameters needed for classical instructions"
-                    );
-                    debug_assert!(
-                        self.matrix.is_none(),
-                        "matrix not needed for classical instruction"
-                    );
-                    debug_assert!(
-                        self.classical_target.is_none(),
-                        "we only need to set target for classical instructions (not classical target)"
-                    );
+        fn get_probability(&self, received_val: bool, actual_val: bool) -> &Float {
+            if received_val == actual_val {
+                if !received_val {
+                    &self.correct_0
+                } else {
+                    &self.correct_1
                 }
-                GateType::Measurement => {
-                    debug_assert!(
-                        self.classical_target.is_some(),
-                        "classical target needed for measurement instruction"
-                    );
-                    debug_assert!(
-                        self.controls.is_none(),
-                        "controls are not needed for measurement instruction"
-                    );
-                    debug_assert!(
-                        self.params.is_none(),
-                        "parametric gate is invalid for measurement gates"
-                    );
-                    debug_assert!(
-                        self.matrix.is_none(),
-                        "matrix should not be specified for measurement instructions"
-                    );
-                }
-                GateType::MultiQubit => {
-                    debug_assert!(
-                        self.controls.is_some(),
-                        "controls in multiqubit gate is none"
-                    );
-                    debug_assert!(
-                        self.classical_target.is_none(),
-                        "multiqubit gate does not needs classical target"
-                    );
-
-                    //assumptions that I might need to remove later:
-                    debug_assert!(
-                        self.matrix.is_none(),
-                        "multiqubit gate cannot be specified with a matrix"
-                    );
-                }
-                GateType::SingleQubit => {
-                    debug_assert!(
-                        self.controls.is_none(),
-                        "single qubit gates should not have controls"
-                    );
-                    debug_assert!(
-                        self.classical_target.is_none(),
-                        "single qubit gates does not needs classical target"
-                    );
-                }
-                GateType::NonUnitary => {
-                    // the following might be assumptions I might need to remove later:
-                    debug_assert!(
-                        self.controls.is_none(),
-                        "non-unitary gate is multiqubit gate (with controls)"
-                    );
-                    debug_assert!(self.params.is_none(), "non-unitary gate has parameters");
-                    debug_assert!(self.classical_target.is_none(), "classical target is not ");
-                }
+            } else if !received_val {
+                &self.incorrect_0
+            } else {
+                &self.incorrect_1
             }
         }
     }
